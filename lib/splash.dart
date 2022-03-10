@@ -16,7 +16,7 @@ class _SplashState extends State<Splash> {
   }
 
   _navigateToHome() async {
-    await Future.delayed(Duration(microseconds: 1500), () {});
+    await Future.delayed(Duration(microseconds: 3000000), () {});
     Navigator.pushReplacement(
         context,
         MaterialPageRoute(
@@ -29,8 +29,10 @@ class _SplashState extends State<Splash> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        child: Text('EMPer Loading...',
-            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+        child: Center(
+          child: Text('EMPer Loading...',
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+        ),
       ),
     );
   }
