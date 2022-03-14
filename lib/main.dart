@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-//import 'package:emper/home.dart';
-//import 'package:emper/splash.dart';
+import 'package:emper/screens/welcome/welcome_screen.dart';
+import 'package:emper/constants.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,6 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'EMPer',
       theme: ThemeData(
           primarySwatch: Colors.red,
@@ -24,9 +25,7 @@ class MyApp extends StatelessWidget {
             titleTextStyle: TextStyle(
                 color: Colors.white, fontFamily: 'Pacifico', fontSize: 16.0),
           )),
-      home: const MyHomePage(
-        title: 'EMPer',
-      ),
+      home: WelcomeScreen(),
     );
   }
 }
