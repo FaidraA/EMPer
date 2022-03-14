@@ -1,5 +1,6 @@
-import 'package:emper/splash.dart';
 import 'package:flutter/material.dart';
+//import 'package:emper/home.dart';
+//import 'package:emper/splash.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,18 +15,18 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'EMPer',
       theme: ThemeData(
-        primarySwatch: Colors.red,
-        appBarTheme:const AppBarTheme(
-         backgroundColor: Color(0xFF741818),
-         iconTheme: IconThemeData(color: Colors.white) ,
-         actionsIconTheme: IconThemeData(color: Colors.white),
-         centerTitle: false,
-         titleTextStyle: TextStyle(color: Colors.white, fontFamily: 'Pacifico', fontSize: 16.0),
-       )
-       
-  
-       ),
-      home: const Splash(),
+          primarySwatch: Colors.red,
+          appBarTheme: const AppBarTheme(
+            backgroundColor: Color(0xFF741818),
+            iconTheme: IconThemeData(color: Colors.white),
+            actionsIconTheme: IconThemeData(color: Colors.white),
+            centerTitle: false,
+            titleTextStyle: TextStyle(
+                color: Colors.white, fontFamily: 'Pacifico', fontSize: 16.0),
+          )),
+      home: const MyHomePage(
+        title: 'EMPer',
+      ),
     );
   }
 }
