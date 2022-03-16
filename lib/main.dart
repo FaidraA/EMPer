@@ -60,7 +60,7 @@ class _MatchPageState extends State<MatchPage> {
   }
 
 
-  @override
+   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Make a Match',
@@ -96,6 +96,7 @@ class _MatchPageState extends State<MatchPage> {
           body: Center( 
             child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisSize: MainAxisSize.max,
               children: [
                 if (profileCount == 1) ...[
                  Column(
@@ -113,15 +114,27 @@ class _MatchPageState extends State<MatchPage> {
                         borderRadius: BorderRadius.all(Radius.circular(20)),
                         color: Color(0xFFEFDBD6),
                       ),
-                      child: const Text('Maria Anagnostou, 19 \n \n ECE \n Straight \n Casual \n \n I like dogs and long walks on the beach'),
+                      width: 300,
+                      height: 160,
+                      child: Column(
+                        children: [
+                         const Text('\n Maria Anagnostou, 19 \n', style: TextStyle(fontWeight: FontWeight.w800)),
+                         const Text(' ECE \n Straight \n Casual \n', style: TextStyle(fontWeight: FontWeight.w600),),
+                         const Text('I like dogs and long walks on the beach'),
+                        ],
+                      )                      
                     ),
+                    
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [                        
                         FloatingActionButton(
                           onPressed: _incrementCounter,
                           tooltip: 'No Match',               
                           child: Image.asset('assets/off_torch.png'),
+                          ),
+                          Container(
+                            width: 140,
                           ),
                         FloatingActionButton(
                           onPressed: _incrementCounter,
@@ -129,7 +142,8 @@ class _MatchPageState extends State<MatchPage> {
                           child: Image.asset('assets/on_torch.png'),
                           ),
                       ],
-                    ),                                      
+                    ),
+                                                       
                   ]
                  )
               ] else if (profileCount == 2) ...[
@@ -148,7 +162,15 @@ class _MatchPageState extends State<MatchPage> {
                         borderRadius: BorderRadius.all(Radius.circular(20)),
                         color: Color(0xFFEFDBD6),
                       ),
-                      child: const Text('Giannis Papadakis, 21 \n \n MechEng \n Bisexual \n Casual \n \n Hit me up for a good time!'),
+                      width: 300,
+                      height: 160,
+                      child: Column(
+                        children: [
+                         const Text('\n Giannis Papadakis, 21 \n', style: TextStyle(fontWeight: FontWeight.w800)),
+                         const Text(' MechEng \n Bisexual \n Casual \n', style: TextStyle(fontWeight: FontWeight.w600),),
+                         const Text('Hit me up for a good time!'),
+                        ],
+                      )    
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -157,6 +179,9 @@ class _MatchPageState extends State<MatchPage> {
                           onPressed: _incrementCounter,
                           tooltip: 'No Match',               
                           child: Image.asset('assets/off_torch.png'),
+                          ),
+                          Container(
+                            width: 140,
                           ),
                         FloatingActionButton(
                           onPressed: _incrementCounter,
@@ -183,7 +208,15 @@ class _MatchPageState extends State<MatchPage> {
                         borderRadius: BorderRadius.all(Radius.circular(20)),
                         color: Color(0xFFEFDBD6),
                       ),
-                      child: const Text('Aggeliki Panagiotaki, 21 \n \n ChemEng \n Lesbian \n Serious \n \n I am a romantic at heart'),
+                      width: 300,
+                      height: 160,
+                      child: Column(
+                        children: [
+                         const Text('\n Aggeliki Panagiotaki, 22 \n', style: TextStyle(fontWeight: FontWeight.w800)),
+                         const Text(' ChemEng \n Lesbian \n Serious \n', style: TextStyle(fontWeight: FontWeight.w600),),
+                         const Text('I am a romantic at heart'),
+                        ],
+                      )    
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -192,6 +225,9 @@ class _MatchPageState extends State<MatchPage> {
                           onPressed: _incrementCounter,
                           tooltip: 'No Match',               
                           child: Image.asset('assets/off_torch.png'),
+                          ),
+                          Container(
+                            width: 140,
                           ),
                         FloatingActionButton(
                           onPressed: _incrementCounter,
@@ -204,9 +240,16 @@ class _MatchPageState extends State<MatchPage> {
                  )
               ] else if (profileCount >= 4) ...[
                 Center(
-                  child: Text('We are sorry, there are no more profiles yet...',
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text('We are sorry, there are no more profiles yet... \n',
                     style: GoogleFonts.pacifico(textStyle: const TextStyle(fontSize: 24)),                 
-                  ),
+                      ),
+                      Text('Tip: You can check out your matches from the My Matches tab on the menu',
+                      style: TextStyle(color: Color(0xFF741818))),
+                    ],
+                  ),                 
                 )
               ]
               ],           
@@ -216,6 +259,7 @@ class _MatchPageState extends State<MatchPage> {
       );   
   }
 }
+
 
 class NotificationsPage extends StatelessWidget{
   const NotificationsPage({Key? key}) : super(key: key);
