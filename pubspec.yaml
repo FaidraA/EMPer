@@ -56,7 +56,13 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
-
+  assets:
+    - assets/off_torch.png
+    - assets/on_torch.png
+    - assets/Face1.png
+    - assets/Face2.png
+    - assets/Face3.png
+    
   # To add assets to your application, add an assets section, like this:
   # assets:
   #   - images/a_dot_burr.jpeg
