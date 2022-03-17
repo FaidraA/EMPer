@@ -20,15 +20,15 @@ class Background extends StatelessWidget {
             top: 0,
             left: 0,
             child: Image.asset(
-              "@assets\EMPerIcon.png",
+              "assets\icons\EMPerIcon.png",
               width: size.width * 0.3,
             ),
           ),
           Positioned(
             bottom: 0,
             left: 0,
-            child:
-                Image.asset("@assets\EMPerIcon.png", width: size.width * 0.2),
+            child: Image.asset("assets\icons\EMPerIcon.png",
+                width: size.width * 0.2),
           ),
           child,
         ],
