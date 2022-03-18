@@ -4,6 +4,7 @@ import 'package:emper/screens/log_in.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:emper/screens/sign_up.dart';
+import 'globals.dart' as globals;
 //import 'package:emper/home.dart';
 //import 'package:emper/splash.dart';
 
