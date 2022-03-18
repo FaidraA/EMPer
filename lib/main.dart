@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
             titleTextStyle: TextStyle(
                 color: Colors.white, fontFamily: 'Pacifico', fontSize: 16.0),
           )),
-      home: const Menu(
+      home: const LogIn(
         title: 'EMPer: Welcome',
       ),
     );
