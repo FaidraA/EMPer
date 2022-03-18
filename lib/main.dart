@@ -51,13 +51,18 @@ class MatchPage extends StatefulWidget {
   @override
   State<MatchPage> createState() => _MatchPageState();
 }
-
 class _MatchPageState extends State<MatchPage> {
-  int profileCount = 1;
-  bool favourited = false;
-  void _incrementCounter() {
+  //int profileCount=1;
+  bool favourited=false;
+  void _incrementCounter(){
     setState(() {
-      profileCount++;
+      globals.profileCount++;
+    });
+  }
+  void _incrementCounterandMatch(int i){
+    setState(() {
+       globals.profileCount++;
+       globals.matchedProfile[i]=true;
     });
   }
 
@@ -66,225 +71,204 @@ class _MatchPageState extends State<MatchPage> {
     return MaterialApp(
       title: 'Make a Match',
       home: Scaffold(
-          appBar: AppBar(
-            title: Text(
-              'EMPer',
-              style: GoogleFonts.getFont('Pacifico'),
-            ),
-            backgroundColor: const Color(0xFF741818),
-            leading: GestureDetector(
-              onTap: () {
-                Navigator.push(
+        appBar: AppBar( 
+          title: Text('EMPer', style: GoogleFonts.getFont('Pacifico'),),
+          backgroundColor: const Color(0xFF741818),
+          leading: GestureDetector(
+            onTap: ()
+               {Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const MainMenu()),
-                );
-              },
-              child: const Icon(Icons.menu),
+                  MaterialPageRoute(builder: (context) => const Menu()),
+               );
+                },
+            child: const Icon(Icons.menu),
             ),
-            actions: [
-              IconButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const NotificationsPage()),
-                    );
-                  },
-                  icon: const Icon(Icons.notifications, color: Colors.white)),
-            ],
-          ),
+             actions: [
+               IconButton(
+              onPressed: (){
+                 Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const NotificationsPage()),
+                );
+               }, 
+              icon: const Icon(
+                Icons.notifications, 
+                color: Colors.white
+                )
+              ),
+          ],
+          ), 
           backgroundColor: const Color(0xFFFECABD),
-          body: Center(
+          body: Center( 
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisSize: MainAxisSize.max,
               children: [
-                if (profileCount == 1) ...[
-                  Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Image.asset('assets/Face1.png'),
-                        Container(
-                            decoration: const BoxDecoration(
-                              border: Border(
-                                top: BorderSide(
-                                    width: 4.0, color: Color(0xFF741818)),
-                                left: BorderSide(
-                                    width: 4.0, color: Color(0xFF741818)),
-                                right: BorderSide(
-                                    width: 4.0, color: Color(0xFF741818)),
-                                bottom: BorderSide(
-                                    width: 4.0, color: Color(0xFF741818)),
-                              ),
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(20)),
-                              color: Color(0xFFEFDBD6),
-                            ),
-                            width: 300,
-                            height: 160,
-                            child: Column(
-                              children: [
-                                const Text('\n Maria Anagnostou, 19 \n',
-                                    style:
-                                        TextStyle(fontWeight: FontWeight.w800)),
-                                const Text(
-                                  ' ECE \n Straight \n Casual \n',
-                                  style: TextStyle(fontWeight: FontWeight.w600),
-                                ),
-                                const Text(
-                                    'I like dogs and long walks on the beach'),
-                              ],
-                            )),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            FloatingActionButton(
-                              onPressed: _incrementCounter,
-                              tooltip: 'No Match',
-                              child: Image.asset('assets/off_torch.png'),
-                            ),
-                            Container(
-                              width: 140,
-                            ),
-                            FloatingActionButton(
-                              onPressed: _incrementCounter,
-                              tooltip: 'Match!',
-                              child: Image.asset('assets/on_torch.png'),
-                            ),
-                          ],
+                if (globals.profileCount == 1) ...[
+                 Column(
+                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Image.asset('assets/Face1.png'),
+                    Container(
+                      decoration: const BoxDecoration(
+                        border: Border(
+                          top: BorderSide(width: 4.0, color: Color(0xFF741818)),
+                          left: BorderSide(width: 4.0, color: Color(0xFF741818)),
+                          right: BorderSide(width: 4.0, color: Color(0xFF741818)),
+                          bottom: BorderSide(width: 4.0, color: Color(0xFF741818)),
                         ),
-                      ])
-                ] else if (profileCount == 2) ...[
-                  Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Image.asset('assets/Face2.png'),
-                        Container(
-                            decoration: const BoxDecoration(
-                              border: Border(
-                                top: BorderSide(
-                                    width: 4.0, color: Color(0xFF741818)),
-                                left: BorderSide(
-                                    width: 4.0, color: Color(0xFF741818)),
-                                right: BorderSide(
-                                    width: 4.0, color: Color(0xFF741818)),
-                                bottom: BorderSide(
-                                    width: 4.0, color: Color(0xFF741818)),
-                              ),
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(20)),
-                              color: Color(0xFFEFDBD6),
-                            ),
-                            width: 300,
-                            height: 160,
-                            child: Column(
-                              children: [
-                                const Text('\n Giannis Papadakis, 21 \n',
-                                    style:
-                                        TextStyle(fontWeight: FontWeight.w800)),
-                                const Text(
-                                  ' MechEng \n Bisexual \n Casual \n',
-                                  style: TextStyle(fontWeight: FontWeight.w600),
-                                ),
-                                const Text('Hit me up for a good time!'),
-                              ],
-                            )),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            FloatingActionButton(
-                              onPressed: _incrementCounter,
-                              tooltip: 'No Match',
-                              child: Image.asset('assets/off_torch.png'),
-                            ),
-                            Container(
-                              width: 140,
-                            ),
-                            FloatingActionButton(
-                              onPressed: _incrementCounter,
-                              tooltip: 'Match!',
-                              child: Image.asset('assets/on_torch.png'),
-                            ),
-                          ],
-                        ),
-                      ])
-                ] else if (profileCount == 3) ...[
-                  Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Image.asset('assets/Face3.png'),
-                        Container(
-                            decoration: const BoxDecoration(
-                              border: Border(
-                                top: BorderSide(
-                                    width: 4.0, color: Color(0xFF741818)),
-                                left: BorderSide(
-                                    width: 4.0, color: Color(0xFF741818)),
-                                right: BorderSide(
-                                    width: 4.0, color: Color(0xFF741818)),
-                                bottom: BorderSide(
-                                    width: 4.0, color: Color(0xFF741818)),
-                              ),
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(20)),
-                              color: Color(0xFFEFDBD6),
-                            ),
-                            width: 300,
-                            height: 160,
-                            child: Column(
-                              children: [
-                                const Text('\n Aggeliki Panagiotaki, 22 \n',
-                                    style:
-                                        TextStyle(fontWeight: FontWeight.w800)),
-                                const Text(
-                                  ' ChemEng \n Lesbian \n Serious \n',
-                                  style: TextStyle(fontWeight: FontWeight.w600),
-                                ),
-                                const Text('I am a romantic at heart'),
-                              ],
-                            )),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            FloatingActionButton(
-                              onPressed: _incrementCounter,
-                              tooltip: 'No Match',
-                              child: Image.asset('assets/off_torch.png'),
-                            ),
-                            Container(
-                              width: 140,
-                            ),
-                            FloatingActionButton(
-                              onPressed: _incrementCounter,
-                              tooltip: 'Match!',
-                              child: Image.asset(
-                                'assets/on_torch.png',
-                              ),
-                            ),
-                          ],
-                        ),
-                      ])
-                ] else if (profileCount >= 4) ...[
-                  Center(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          'We are sorry, there are no more profiles yet... \n',
-                          style: GoogleFonts.pacifico(
-                              textStyle: const TextStyle(fontSize: 24)),
-                        ),
-                        Text(
-                            'Tip: You can check out your matches from the My Matches tab on the menu',
-                            style: TextStyle(color: Color(0xFF741818))),
+                        borderRadius: BorderRadius.all(Radius.circular(20)),
+                        color: Color(0xFFEFDBD6),
+                      ),
+                      width: 300,
+                      height: 160,
+                      child: Column(
+                        children: [
+                         const Text('\n Maria Anagnostou, 19 \n', style: TextStyle(fontWeight: FontWeight.w800)),
+                         const Text(' ECE \n Straight \n Casual \n', style: TextStyle(fontWeight: FontWeight.w600),),
+                         const Text('I like dogs and long walks on the beach'),
+                        ],
+                      )                      
+                    ),
+                    
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [                        
+                        FloatingActionButton(
+                          heroTag: 'off',
+                          onPressed:_incrementCounter, 
+                          tooltip: 'No Match',               
+                          child: Image.asset('assets/off_torch.png'),
+                          ),
+                          Container(
+                            width: 140,
+                          ),
+                        FloatingActionButton(
+                          heroTag: 'off',
+                          onPressed:(){ _incrementCounterandMatch(0);},
+                          tooltip: 'Match!',               
+                          child: Image.asset('assets/on_torch.png'),
+                          ),
                       ],
                     ),
-                  )
-                ]
-              ],
-            ),
-          )),
-    );
+                                                       
+                  ]
+                 )
+              ] else if (globals.profileCount == 2) ...[
+                  Column(
+                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Image.asset('assets/Face2.png'),
+                    Container(
+                      decoration: const BoxDecoration(
+                        border: Border(
+                          top: BorderSide(width: 4.0, color: Color(0xFF741818)),
+                          left: BorderSide(width: 4.0, color: Color(0xFF741818)),
+                          right: BorderSide(width: 4.0, color: Color(0xFF741818)),
+                          bottom: BorderSide(width: 4.0, color: Color(0xFF741818)),
+                        ),
+                        borderRadius: BorderRadius.all(Radius.circular(20)),
+                        color: Color(0xFFEFDBD6),
+                      ),
+                      width: 300,
+                      height: 160,
+                      child: Column(
+                        children: [
+                         const Text('\n Giannis Papadakis, 21 \n', style: TextStyle(fontWeight: FontWeight.w800)),
+                         const Text(' MechEng \n Bisexual \n Casual \n', style: TextStyle(fontWeight: FontWeight.w600),),
+                         const Text('Hit me up for a good time!'),
+                        ],
+                      )    
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [                        
+                        FloatingActionButton(
+                          heroTag: 'off',
+                          onPressed: _incrementCounter,
+                          tooltip: 'No Match',               
+                          child: Image.asset('assets/off_torch.png'),
+                          ),
+                          Container(
+                            width: 140,
+                          ),
+                        FloatingActionButton(
+                          heroTag: 'on',
+                          onPressed: (){ _incrementCounterandMatch(1);},
+                          tooltip: 'Match!',               
+                          child: Image.asset('assets/on_torch.png'),
+                          ),
+                      ],
+                    ),                                      
+                  ]
+                 )                
+              ] else if (globals.profileCount == 3)...[
+                  Column(
+                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Image.asset('assets/Face3.png'),
+                    Container(
+                      decoration: const BoxDecoration(
+                        border: Border(
+                          top: BorderSide(width: 4.0, color: Color(0xFF741818)),
+                          left: BorderSide(width: 4.0, color: Color(0xFF741818)),
+                          right: BorderSide(width: 4.0, color: Color(0xFF741818)),
+                          bottom: BorderSide(width: 4.0, color: Color(0xFF741818)),
+                        ),
+                        borderRadius: BorderRadius.all(Radius.circular(20)),
+                        color: Color(0xFFEFDBD6),
+                      ),
+                      width: 300,
+                      height: 160,
+                      child: Column(
+                        children: [
+                         const Text('\n Aggeliki Panagiotaki, 22 \n', style: TextStyle(fontWeight: FontWeight.w800)),
+                         const Text(' ChemEng \n Lesbian \n Serious \n', style: TextStyle(fontWeight: FontWeight.w600),),
+                         const Text('I am a romantic at heart'),
+                        ],
+                      )    
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [                        
+                        FloatingActionButton(
+                          heroTag: 'off',
+                          onPressed: _incrementCounter,
+                          tooltip: 'No Match',               
+                          child: Image.asset('assets/off_torch.png'),
+                          ),
+                          Container(
+                            width: 140,
+                          ),
+                        FloatingActionButton(
+                          heroTag: 'on',
+                          onPressed: (){ _incrementCounterandMatch(2);},
+                          tooltip: 'Match!',               
+                          child: Image.asset('assets/on_torch.png',),
+                          ),
+                      ],
+                    ),                                      
+                  ]
+                 )
+              ] else if (globals.profileCount >= 4) ...[
+                Center(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text('We are sorry, there are no more profiles yet... \n',
+                    style: GoogleFonts.pacifico(textStyle: const TextStyle(fontSize: 24)),                 
+                      ),
+                      Text('Tip: You can check out your matches from the My Matches tab on the menu',
+                      style: TextStyle(color: Color(0xFF741818))),
+                    ],
+                  ),                 
+                )
+              ]
+              ],           
+            ),          
+          )
+        ),       
+      );   
   }
 }
 
@@ -295,22 +279,9 @@ class NotificationsPage extends StatefulWidget {
   NotificationsPageState createState() => NotificationsPageState();
 }
 
-class NotificationsPageState extends State<NotificationsPage>{
-  var alreadySeen = [false, false, false];
-
- @override
-  Widget build(BuildContext context){
-     return MaterialApp(
-          title: 'Notifications',
-          home: Scaffold(
-            appBar: AppBar(
-              title: Text('My Notifications', style: GoogleFonts.getFont('Pacifico'),), 
-              backgroundColor: const Color(0xFF741818),
-          leading: GestureDetector(
-            onTap: ()
-               {Navigator.push(
+ {Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const MainMenu()),
+                  MaterialPageRoute(builder: (context) => const Menu()),
                );
                 },
             child: const Icon(Icons.menu),
@@ -321,39 +292,39 @@ class NotificationsPageState extends State<NotificationsPage>{
                 ListTile(
                   title: Text('Dionysis Aggelopoulos has matched with you!'),
                   trailing: Icon(
-                    alreadySeen[0] ? Icons.visibility_off : Icons.visibility,
-                    color: alreadySeen[0] ? null : Color(0xFF741818),
-                    semanticLabel: alreadySeen[0] ? 'You have read this!' : 'Tap to mark as seen',
+                    globals.alreadySeen[0] ? Icons.visibility_off : Icons.visibility,
+                    color: globals.alreadySeen[0] ? null : Color(0xFF741818),
+                    semanticLabel: globals.alreadySeen[0] ? 'You have read this!' : 'Tap to mark as seen',
                   ),
                   onTap:  (){
                      setState(() {
-                      alreadySeen[0] ? null : (alreadySeen[0] = true);
+                      globals.alreadySeen[0] ? null : (globals.alreadySeen[0] = true);
                     });
                   }                  
                 ),
                 ListTile(
                   title: Text('You have a text from Dionysis Aggelopoulos'),
                   trailing: Icon(
-                    alreadySeen[1] ? Icons.visibility_off : Icons.visibility,
-                    color: alreadySeen[1] ? null : Color(0xFF741818),
-                    semanticLabel: alreadySeen[1] ? 'You have read this!' : 'Tap to mark as seen',
+                    globals.alreadySeen[1] ? Icons.visibility_off : Icons.visibility,
+                    color: globals.alreadySeen[1] ? null : Color(0xFF741818),
+                    semanticLabel: globals.alreadySeen[1] ? 'You have read this!' : 'Tap to mark as seen',
                   ),
                   onTap: (){
                      setState(() {
-                      alreadySeen[1] ? null : (alreadySeen[1] = true);
+                      globals.alreadySeen[1] ? null : (globals.alreadySeen[1] = true);
                     }); 
                   }                  
                 ),
                 ListTile(
                   title: Text('There is an update coming, check out our website for all the latest news'),
                   trailing: Icon(
-                    alreadySeen[2] ? Icons.visibility_off : Icons.visibility,
-                    color: alreadySeen[2] ? null : Color(0xFF741818),
-                    semanticLabel: alreadySeen[2] ? 'You have read this!' : 'Tap to mark as seen',
+                    globals.alreadySeen[2] ? Icons.visibility_off : Icons.visibility,
+                    color: globals.alreadySeen[2] ? null : Color(0xFF741818),
+                    semanticLabel: globals.alreadySeen[2] ? 'You have read this!' : 'Tap to mark as seen',
                   ),
                   onTap: (){
                      setState(() {
-                      alreadySeen[2] ? null : (alreadySeen[2] = true);
+                      globals.alreadySeen[2] ? null : (globals.alreadySeen[2] = true);
                     });
                   }
                 ),
@@ -364,16 +335,65 @@ class NotificationsPageState extends State<NotificationsPage>{
   }
 }
 
-
-
-class MainMenu extends StatelessWidget {
-  const MainMenu({Key? key}) : super(key: key);
+class MyMatchesPage extends StatefulWidget {
+  const MyMatchesPage({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    return const MaterialApp();
+  MyMatchesPageState createState() => MyMatchesPageState();
+}
+
+class MyMatchesPageState extends State<MyMatchesPage>{
+
+  @override
+  Widget build(BuildContext context){
+    return MaterialApp(
+      title: 'See your Matches',
+      home: Scaffold(
+        appBar: AppBar( 
+          title: Text('EMPer', style: GoogleFonts.getFont('Pacifico'),),
+          backgroundColor: const Color(0xFF741818),
+          leading: GestureDetector(
+            onTap: ()
+               {Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Menu()),
+               );
+                },
+            child: const Icon(Icons.menu),
+            ),
+             actions: [
+               IconButton(
+              onPressed: (){
+                 Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const NotificationsPage()),
+                );
+               }, 
+              icon: const Icon(
+                Icons.notifications, 
+                color: Colors.white
+                )
+              ),
+          ],
+          ),
+          body: ListView(
+            children: [
+              Container(
+              child: globals.matchedProfile[0] ? ListTile(title: Text('Maria Anagnostou'), leading: Icon(Icons.favorite)) : null ,
+            ),
+            Container(
+              child: globals.matchedProfile[1] ? ListTile(title: Text('Giannis Papadakis'), leading: Icon(Icons.favorite)) : null ,
+            ),
+            Container(
+              child: globals.matchedProfile[2] ? ListTile(title: Text('Aggeliki Panagiotaki'), leading: Icon(Icons.favorite)) : null ,
+            ),
+            ],
+      ), 
+      )
+    );
   }
 }
+
 
 // class MyHomePage extends StatefulWidget {
 //   const MyHomePage({Key? key, required this.title}) : super(key: key);
