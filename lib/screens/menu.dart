@@ -1,22 +1,10 @@
-import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+// ignore_for_file: unnecessary_const
 
-class Menu extends StatefulWidget {
+import 'package:flutter/material.dart';
+
+class Menu extends StatelessWidget {
   const Menu({Key? key, required this.title}) : super(key: key);
   final String title;
-
-  @override
-  State<Menu> createState() => _MenuState();
-}
-
-class _MenuState extends State<Menu> {
-  int profileCount = 1;
-  bool favourited = false;
-  void _incrementCounter() {
-    setState(() {
-      profileCount++;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -28,22 +16,34 @@ class _MenuState extends State<Menu> {
           child: ListView(
             padding: EdgeInsets.zero,
             children: [
-              const DrawerHeader(
-                decoration: BoxDecoration(
-                  color: const Color(0xFFAF302C),
+              const SizedBox(
+                height: 30,
+                child: const DrawerHeader(
+                  decoration: BoxDecoration(
+                    color: const Color(0xFFAF302C),
+                  ),
+                  child: Text('EMPer Menu Box 1'),
                 ),
-                child: Text('EMPer Menu Box 1'),
               ),
-              const DrawerHeader(
-                decoration: BoxDecoration(
-                  color: const Color(0xFFFFFFFF),
+              const SizedBox(
+                height: 100,
+                child: const DrawerHeader(
+                  decoration: BoxDecoration(
+                    color: const Color(0xFFFFFFFF),
+                  ),
+                  child: Align(
+                    alignment: Alignment.topLeft,
+                    child: CircleAvatar(
+                      backgroundImage:
+                          NetworkImage('assets/Face1.png', scale: 0.5),
+                    ),
+                  ),
                 ),
-                child: Align(
-                  alignment: Alignment.topLeft,
-                  child: CircleAvatar(
-                    backgroundImage:
-                        NetworkImage('assets/Face1.png', scale: 0.5),
-                  ), //Text('EMPer Menu box 2'),
+              ),
+              const ListTile(
+                title: const Text(
+                  'EMPer Menu',
+                  style: TextStyle(fontWeight: FontWeight.bold),
                 ),
               ),
               ListTile(
@@ -93,6 +93,15 @@ class _MenuState extends State<Menu> {
               ),
               ListTile(
                 title: const Text('Log out'),
+                onTap: () {
+                  // Update the state of the app
+                  // ...
+                  // Then close the drawer
+                  Navigator.pop(context);
+                },
+              ),
+              ListTile(
+                title: const Icon(Icons.close, color: Colors.grey, size: 40),
                 onTap: () {
                   // Update the state of the app
                   // ...
