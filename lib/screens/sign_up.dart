@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class SignUp extends StatefulWidget {
-  const SignUp({Key? key, required this.title}) : super(key: key);
-  final String title;
+  const SignUp({Key? key}) : super(key: key);
   @override
   State<SignUp> createState() => _SignUpState();
 }
