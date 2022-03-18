@@ -298,12 +298,7 @@ class NotificationsPage extends StatefulWidget {
 }
 
 class NotificationsPageState extends State<NotificationsPage>{
-  bool alreadySeen = false;
-  void checkSeen(){
-    setState(() {
-      alreadySeen ? null : (alreadySeen = true);
-    });
-  }
+  var alreadySeen = [false, false, false];
 
  @override
   Widget build(BuildContext context){
@@ -328,29 +323,41 @@ class NotificationsPageState extends State<NotificationsPage>{
                 ListTile(
                   title: Text('Dionysis Aggelopoulos has matched with you!'),
                   trailing: Icon(
-                    alreadySeen ? Icons.visibility_off : Icons.visibility,
-                    color: alreadySeen ? null : Color(0xFF741818),
-                    semanticLabel: alreadySeen ? 'You have read this!' : 'Tap to mark as seen',
+                    alreadySeen[0] ? Icons.visibility_off : Icons.visibility,
+                    color: alreadySeen[0] ? null : Color(0xFF741818),
+                    semanticLabel: alreadySeen[0] ? 'You have read this!' : 'Tap to mark as seen',
                   ),
-                  onTap: checkSeen                   
+                  onTap:  (){
+                     setState(() {
+                      alreadySeen[0] ? null : (alreadySeen[0] = true);
+                    });
+                  }                  
                 ),
                 ListTile(
                   title: Text('You have a text from Dionysis Aggelopoulos'),
                   trailing: Icon(
-                    alreadySeen ? Icons.visibility_off : Icons.visibility,
-                    color: alreadySeen ? null : Color(0xFF741818),
-                    semanticLabel: alreadySeen ? 'You have read this!' : 'Tap to mark as seen',
+                    alreadySeen[1] ? Icons.visibility_off : Icons.visibility,
+                    color: alreadySeen[1] ? null : Color(0xFF741818),
+                    semanticLabel: alreadySeen[1] ? 'You have read this!' : 'Tap to mark as seen',
                   ),
-                  onTap: checkSeen                   
+                  onTap: (){
+                     setState(() {
+                      alreadySeen[1] ? null : (alreadySeen[1] = true);
+                    }); 
+                  }                  
                 ),
                 ListTile(
                   title: Text('There is an update coming, check out our website for all the latest news'),
                   trailing: Icon(
-                    alreadySeen ? Icons.visibility_off : Icons.visibility,
-                    color: alreadySeen ? null : Color(0xFF741818),
-                    semanticLabel: alreadySeen ? 'You have read this!' : 'Tap to mark as seen',
+                    alreadySeen[2] ? Icons.visibility_off : Icons.visibility,
+                    color: alreadySeen[2] ? null : Color(0xFF741818),
+                    semanticLabel: alreadySeen[2] ? 'You have read this!' : 'Tap to mark as seen',
                   ),
-                  onTap: checkSeen                   
+                  onTap: (){
+                     setState(() {
+                      alreadySeen[2] ? null : (alreadySeen[2] = true);
+                    });
+                  }
                 ),
               ],           
             ),
@@ -358,6 +365,8 @@ class NotificationsPageState extends State<NotificationsPage>{
         );
   }
 }
+
+
 
 class MainMenu extends StatelessWidget {
   const MainMenu({Key? key}) : super(key: key);
