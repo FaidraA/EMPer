@@ -63,6 +63,7 @@ flutter:
     - assets/Face1.png
     - assets/Face2.png
     - assets/Face3.png
+    - assets/EMPerIcon.png
     
   # To add assets to your application, add an assets section, like this:
   # assets:
