@@ -290,27 +290,72 @@ class _MatchPageState extends State<MatchPage> {
   }
 }
 
-class NotificationsPage extends StatelessWidget {
+class NotificationsPage extends StatefulWidget {
   const NotificationsPage({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-        title: 'Notifications',
-        home: Scaffold(
+  NotificationsPageState createState() => NotificationsPageState();
+}
+
+class NotificationsPageState extends State<NotificationsPage>{
+  bool alreadySeen = false;
+  void checkSeen(){
+    setState(() {
+      alreadySeen ? null : (alreadySeen = true);
+    });
+  }
+
+ @override
+  Widget build(BuildContext context){
+     return MaterialApp(
+          title: 'Notifications',
+          home: Scaffold(
             appBar: AppBar(
-          title: const Text('My Notifications'),
-          actions: [
-            IconButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const MainMenu()),
-                  );
+              title: Text('My Notifications', style: GoogleFonts.getFont('Pacifico'),), 
+              backgroundColor: const Color(0xFF741818),
+          leading: GestureDetector(
+            onTap: ()
+               {Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const MainMenu()),
+               );
                 },
-                icon: const Icon(Icons.menu, color: Colors.white))
-          ],
-        )));
+            child: const Icon(Icons.menu),
+            ),
+            ),
+            body: ListView( 
+              children: [
+                ListTile(
+                  title: Text('Dionysis Aggelopoulos has matched with you!'),
+                  trailing: Icon(
+                    alreadySeen ? Icons.visibility_off : Icons.visibility,
+                    color: alreadySeen ? null : Color(0xFF741818),
+                    semanticLabel: alreadySeen ? 'You have read this!' : 'Tap to mark as seen',
+                  ),
+                  onTap: checkSeen                   
+                ),
+                ListTile(
+                  title: Text('You have a text from Dionysis Aggelopoulos'),
+                  trailing: Icon(
+                    alreadySeen ? Icons.visibility_off : Icons.visibility,
+                    color: alreadySeen ? null : Color(0xFF741818),
+                    semanticLabel: alreadySeen ? 'You have read this!' : 'Tap to mark as seen',
+                  ),
+                  onTap: checkSeen                   
+                ),
+                ListTile(
+                  title: Text('There is an update coming, check out our website for all the latest news'),
+                  trailing: Icon(
+                    alreadySeen ? Icons.visibility_off : Icons.visibility,
+                    color: alreadySeen ? null : Color(0xFF741818),
+                    semanticLabel: alreadySeen ? 'You have read this!' : 'Tap to mark as seen',
+                  ),
+                  onTap: checkSeen                   
+                ),
+              ],           
+            ),
+          )
+        );
   }
 }
 
