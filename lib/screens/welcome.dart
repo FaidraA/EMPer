@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Welcome extends StatefulWidget {
-  const Welcome({Key? key, required this.title}) : super(key: key);
+  const Welcome({Key? key}) : super(key: key);
 
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
@@ -12,7 +12,6 @@ class Welcome extends StatefulWidget {
   // case the title) provided by the parent (in this case the App widget) and
   // used by the build method of the State. Fields in a Widget subclass are
   // always marked "final".
-  final String title;
 
   @override
   State<Welcome> createState() => _WelcomeState();
