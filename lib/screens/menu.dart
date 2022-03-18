@@ -49,10 +49,10 @@ class Menu extends StatelessWidget {
               ListTile(
                 title: const Text('Make a Match'),
                 onTap: () {
-                  // Update the state of the app
-                  // ...
-                  // Then close the drawer
-                  Navigator.pop(context);
+                  Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const MatchPage(title: 'EMPer')),
+                );
                 },
               ),
               ListTile(
@@ -76,10 +76,10 @@ class Menu extends StatelessWidget {
               ListTile(
                 title: const Text('Notifications'),
                 onTap: () {
-                  // Update the state of the app
-                  // ...
-                  // Then close the drawer
-                  Navigator.pop(context);
+                  Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const NotificationsPage()),
+                );
                 },
               ),
               ListTile(
@@ -103,9 +103,6 @@ class Menu extends StatelessWidget {
               ListTile(
                 title: const Icon(Icons.close, color: Colors.grey, size: 40),
                 onTap: () {
-                  // Update the state of the app
-                  // ...
-                  // Then close the drawer
                   Navigator.pop(context);
                 },
               ),
