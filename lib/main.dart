@@ -288,29 +288,83 @@ class _MatchPageState extends State<MatchPage> {
   }
 }
 
-class NotificationsPage extends StatelessWidget {
+class NotificationsPage extends StatefulWidget {
   const NotificationsPage({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-        title: 'Notifications',
-        home: Scaffold(
+  NotificationsPageState createState() => NotificationsPageState();
+}
+
+class NotificationsPageState extends State<NotificationsPage>{
+  var alreadySeen = [false, false, false];
+
+ @override
+  Widget build(BuildContext context){
+     return MaterialApp(
+          title: 'Notifications',
+          home: Scaffold(
             appBar: AppBar(
-          title: const Text('My Notifications'),
-          actions: [
-            IconButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const MainMenu()),
-                  );
+              title: Text('My Notifications', style: GoogleFonts.getFont('Pacifico'),), 
+              backgroundColor: const Color(0xFF741818),
+          leading: GestureDetector(
+            onTap: ()
+               {Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const MainMenu()),
+               );
                 },
-                icon: const Icon(Icons.menu, color: Colors.white))
-          ],
-        )));
+            child: const Icon(Icons.menu),
+            ),
+            ),
+            body: ListView( 
+              children: [
+                ListTile(
+                  title: Text('Dionysis Aggelopoulos has matched with you!'),
+                  trailing: Icon(
+                    alreadySeen[0] ? Icons.visibility_off : Icons.visibility,
+                    color: alreadySeen[0] ? null : Color(0xFF741818),
+                    semanticLabel: alreadySeen[0] ? 'You have read this!' : 'Tap to mark as seen',
+                  ),
+                  onTap:  (){
+                     setState(() {
+                      alreadySeen[0] ? null : (alreadySeen[0] = true);
+                    });
+                  }                  
+                ),
+                ListTile(
+                  title: Text('You have a text from Dionysis Aggelopoulos'),
+                  trailing: Icon(
+                    alreadySeen[1] ? Icons.visibility_off : Icons.visibility,
+                    color: alreadySeen[1] ? null : Color(0xFF741818),
+                    semanticLabel: alreadySeen[1] ? 'You have read this!' : 'Tap to mark as seen',
+                  ),
+                  onTap: (){
+                     setState(() {
+                      alreadySeen[1] ? null : (alreadySeen[1] = true);
+                    }); 
+                  }                  
+                ),
+                ListTile(
+                  title: Text('There is an update coming, check out our website for all the latest news'),
+                  trailing: Icon(
+                    alreadySeen[2] ? Icons.visibility_off : Icons.visibility,
+                    color: alreadySeen[2] ? null : Color(0xFF741818),
+                    semanticLabel: alreadySeen[2] ? 'You have read this!' : 'Tap to mark as seen',
+                  ),
+                  onTap: (){
+                     setState(() {
+                      alreadySeen[2] ? null : (alreadySeen[2] = true);
+                    });
+                  }
+                ),
+              ],           
+            ),
+          )
+        );
   }
 }
+
+
 
 class MainMenu extends StatelessWidget {
   const MainMenu({Key? key}) : super(key: key);
