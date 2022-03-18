@@ -1,6 +1,6 @@
 {
-    "name": "EMPer",
-    "short_name": "EMPer",
+    "name": "emper",
+    "short_name": "emper",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
