@@ -582,6 +582,23 @@ class UserBProfile extends StatelessWidget{
   }
 }
 
+class Chat extends StatefulWidget{
+  const Chat({Key? key}) : super(key: key);
+
+  @override
+  ChatState createState() => ChatState();
+}
+
+class ChatState extends State<Chat>{
+
+  @override
+  Widget build(BuildContext context){
+    return MaterialApp(
+
+    );
+  }
+}
+
 
 // class MyHomePage extends StatefulWidget {
 //   const MyHomePage({Key? key, required this.title}) : super(key: key);
