@@ -280,7 +280,19 @@ class NotificationsPage extends StatefulWidget {
   NotificationsPageState createState() => NotificationsPageState();
 }
 
- {Navigator.push(
+class NotificationsPageState extends State<NotificationsPage>{
+
+ @override
+  Widget build(BuildContext context){
+     return MaterialApp(
+          title: 'Notifications',
+          home: Scaffold(
+            appBar: AppBar(
+              title: Text('My Notifications', style: GoogleFonts.getFont('Pacifico'),), 
+              backgroundColor: const Color(0xFF741818),
+          leading: GestureDetector(
+            onTap: ()
+               {Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => const Menu()),
                );
@@ -335,6 +347,7 @@ class NotificationsPage extends StatefulWidget {
         );
   }
 }
+
 
 class MyMatchesPage extends StatefulWidget {
   const MyMatchesPage({Key? key}) : super(key: key);
