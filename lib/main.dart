@@ -403,65 +403,182 @@ class MyMatchesPage extends StatefulWidget {
   MyMatchesPageState createState() => MyMatchesPageState();
 }
 
-class MyMatchesPageState extends State<MyMatchesPage> {
+class MyMatchesPageState extends State<MyMatchesPage>{
+
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context){
     return MaterialApp(
-        title: 'See your Matches',
-        home: Scaffold(
-          appBar: AppBar(
-            title: Text(
-              'EMPer',
-              style: GoogleFonts.getFont('Pacifico'),
-            ),
-            backgroundColor: const Color(0xFF741818),
-            leading: GestureDetector(
-              onTap: () {
-                Navigator.push(
+      title: 'See your Matches',
+      home: Scaffold(
+        appBar: AppBar( 
+          title: Text('EMPer', style: GoogleFonts.getFont('Pacifico'),),
+          backgroundColor: const Color(0xFF741818),
+          leading: GestureDetector(
+            onTap: ()
+               {Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => const Menu()),
-                );
-              },
-              child: const Icon(Icons.menu),
+               );
+                },
+            child: const Icon(Icons.menu),
             ),
-            actions: [
-              IconButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const NotificationsPage()),
-                    );
-                  },
-                  icon: const Icon(Icons.notifications, color: Colors.white)),
-            ],
+             actions: [
+               IconButton(
+              onPressed: (){
+                 Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const NotificationsPage()),
+                );
+               }, 
+              icon: const Icon(
+                Icons.notifications, 
+                color: Colors.white
+                )
+              ),
+          ],
           ),
           body: ListView(
             children: [
               Container(
-                child: globals.matchedProfile[0]
-                    ? ListTile(
-                        title: Text('Maria Anagnostou'),
-                        leading: Icon(Icons.favorite))
-                    : null,
-              ),
-              Container(
-                child: globals.matchedProfile[1]
-                    ? ListTile(
-                        title: Text('Giannis Papadakis'),
-                        leading: Icon(Icons.favorite))
-                    : null,
-              ),
-              Container(
-                child: globals.matchedProfile[2]
-                    ? ListTile(
-                        title: Text('Aggeliki Panagiotaki'),
-                        leading: Icon(Icons.favorite))
-                    : null,
-              ),
+              child: globals.matchedProfile[0] ? ListTile(title: Text('Maria Anagnostou'), leading: Icon(Icons.favorite),
+              onTap: () {
+                globals.viewingprofile=1;
+                 Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const UserBProfile()),
+                );
+              },) : null ,
+            ),
+            Container(
+              child: globals.matchedProfile[1] ? ListTile(title: Text('Giannis Papadakis'), leading: Icon(Icons.favorite),
+              onTap: () {
+                globals.viewingprofile=2;
+                 Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const UserBProfile()),
+                );
+              },) : null ,
+            ),
+            Container(
+              child: globals.matchedProfile[2] ? ListTile(title: Text('Aggeliki Panagiotaki'), leading: Icon(Icons.favorite),
+              onTap: () {
+                globals.viewingprofile=3;
+                 Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const UserBProfile()),
+                );
+              },) : null ,
+            ),
             ],
+      ), 
+      )
+    );
+  }
+}
+
+class UserBProfile extends StatelessWidget{
+   const UserBProfile({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context){
+    return MaterialApp(
+       title: 'Your Match',
+      home: Scaffold(
+        appBar: AppBar( 
+          title: Text('EMPer', style: GoogleFonts.getFont('Pacifico'),),
+          backgroundColor: const Color(0xFF741818),
+          leading: GestureDetector(
+            onTap: ()
+               {Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Menu()),
+               );
+                },
+            child: const Icon(Icons.menu),
+            ),
+             actions: [
+               IconButton(
+              onPressed: (){
+                 Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const NotificationsPage()),
+                );
+               }, 
+              icon: const Icon(
+                Icons.notifications, 
+                color: Colors.white
+                )
+              ),
+          ],
+          ), 
+          backgroundColor: const Color(0xFFEFDBD6),
+          body: Center(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                if (globals.viewingprofile == 1) ...[
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Image.asset('assets/Face1.png'),
+                      const Text('\n Maria Anagnostou, 19 \n', style: TextStyle(fontWeight: FontWeight.w800)),
+                      const Text(' ECE \n Straight \n Casual \n', style: TextStyle(fontWeight: FontWeight.w600),),
+                      const Text('I like dogs and long walks on the beach'),
+                      TextButton(
+                        style: TextButton.styleFrom(backgroundColor: const Color(0xFF741818)),
+                        onPressed: () {
+                          Navigator.push(
+                           context,
+                           MaterialPageRoute(builder: (context) => const Chat()),
+                           );
+                        }, 
+                        child: Text('START A CONVERSATION...',style: GoogleFonts.pacifico(color: Colors.white),))
+                    ],
+                  )
+                ] else if (globals.viewingprofile == 2) ...[
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Image.asset('assets/Face2.png'),
+                      const Text('\n Giannis Papadakis, 21 \n', style: TextStyle(fontWeight: FontWeight.w800)),
+                      const Text(' MechEng \n Bisexual \n Casual \n', style: TextStyle(fontWeight: FontWeight.w600),),
+                      const Text('Hit me up for a good time!'),
+                      TextButton(
+                        style: TextButton.styleFrom(backgroundColor: const Color(0xFF741818)),
+                        onPressed: () {
+                          Navigator.push(
+                           context,
+                           MaterialPageRoute(builder: (context) => const Chat()),
+                           );
+                        }, 
+                        child: Text('START A CONVERSATION...',style: GoogleFonts.pacifico(color: Colors.white),))
+                    ],
+                  )
+                ] else if (globals.viewingprofile ==3) ...[
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Image.asset('assets/Face3.png'),
+                      const Text('\n Aggeliki Panagiotaki, 22 \n', style: TextStyle(fontWeight: FontWeight.w800)),
+                      const Text(' ChemEng \n Lesbian \n Serious \n', style: TextStyle(fontWeight: FontWeight.w600),),
+                      const Text('I am a romantic at heart'),
+                      TextButton(
+                        style: TextButton.styleFrom(backgroundColor: const Color(0xFF741818)),
+                        onPressed: () {
+                          Navigator.push(
+                           context,
+                           MaterialPageRoute(builder: (context) => const Chat()),
+                           );
+                        }, 
+                        child: Text('START A CONVERSATION...',style: GoogleFonts.pacifico(color: Colors.white),))
+                    ],
+                  )
+                ]
+              ],
+            ),
           ),
-        ));
+      )
+    );
   }
 }
 
