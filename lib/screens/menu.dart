@@ -1,6 +1,7 @@
 // ignore_for_file: unnecessary_const
 
 import 'package:flutter/material.dart';
+import 'package:emper/main.dart';
 
 class Menu extends StatelessWidget {
   const Menu({Key? key}) : super(key: key);
@@ -49,18 +50,19 @@ class Menu extends StatelessWidget {
                 title: const Text('Make a Match'),
                 onTap: () {
                   Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const MatchPage(title: 'EMPer')),
-                );
+                    context,
+                    MaterialPageRoute(builder: (context) => const MatchPage()),
+                  );
                 },
               ),
               ListTile(
                 title: const Text('My Matches'),
                 onTap: () {
                   Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const MyMatchesPage()),
-                );
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const MyMatchesPage()),
+                  );
                 },
               ),
               ListTile(
@@ -76,9 +78,10 @@ class Menu extends StatelessWidget {
                 title: const Text('Notifications'),
                 onTap: () {
                   Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const NotificationsPage()),
-                );
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const NotificationsPage()),
+                  );
                 },
               ),
               ListTile(
