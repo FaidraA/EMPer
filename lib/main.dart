@@ -1,5 +1,4 @@
 import 'package:emper/screens/menu.dart';
-import 'package:emper/screens/welcome.dart';
 import 'package:emper/screens/log_in.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -129,16 +128,15 @@ class _MatchPageState extends State<MatchPage> {
                             width: 300,
                             height: 160,
                             child: Column(
-                              children: [
-                                const Text('\n Maria Anagnostou, 19 \n',
+                              children: const [
+                                Text('\n Maria Anagnostou, 19 \n',
                                     style:
                                         TextStyle(fontWeight: FontWeight.w800)),
-                                const Text(
+                                Text(
                                   ' ECE \n Straight \n Casual \n',
                                   style: TextStyle(fontWeight: FontWeight.w600),
                                 ),
-                                const Text(
-                                    'I like dogs and long walks on the beach'),
+                                Text('I like dogs and long walks on the beach'),
                               ],
                             )),
                         Row(
@@ -188,15 +186,15 @@ class _MatchPageState extends State<MatchPage> {
                             width: 300,
                             height: 160,
                             child: Column(
-                              children: [
-                                const Text('\n Giannis Papadakis, 21 \n',
+                              children: const [
+                                Text('\n Giannis Papadakis, 21 \n',
                                     style:
                                         TextStyle(fontWeight: FontWeight.w800)),
-                                const Text(
+                                Text(
                                   ' MechEng \n Bisexual \n Casual \n',
                                   style: TextStyle(fontWeight: FontWeight.w600),
                                 ),
-                                const Text('Hit me up for a good time!'),
+                                Text('Hit me up for a good time!'),
                               ],
                             )),
                         Row(
@@ -246,15 +244,15 @@ class _MatchPageState extends State<MatchPage> {
                             width: 300,
                             height: 160,
                             child: Column(
-                              children: [
-                                const Text('\n Aggeliki Panagiotaki, 22 \n',
+                              children: const [
+                                Text('\n Aggeliki Panagiotaki, 22 \n',
                                     style:
                                         TextStyle(fontWeight: FontWeight.w800)),
-                                const Text(
+                                Text(
                                   ' ChemEng \n Lesbian \n Serious \n',
                                   style: TextStyle(fontWeight: FontWeight.w600),
                                 ),
-                                const Text('I am a romantic at heart'),
+                                Text('I am a romantic at heart'),
                               ],
                             )),
                         Row(
