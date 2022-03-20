@@ -25,7 +25,7 @@ class _SignUpState extends State<SignUp> {
         ),
         backgroundColor: const Color(0xFFF1C3C3),
         body: Padding(
-          padding: const EdgeInsets.all(10.0),
+          padding: const EdgeInsets.all(15.0),
           child: Column(
             children: <Widget>[
               Row(
@@ -36,7 +36,7 @@ class _SignUpState extends State<SignUp> {
                         fontSize: 20,
                         color: Colors.black,
                       )),
-                  SizedBox(
+                  const SizedBox(
                     width: 10,
                   ),
                   Container(
@@ -60,6 +60,127 @@ class _SignUpState extends State<SignUp> {
                       )),
                 ],
               ),
+              const SizedBox(
+                height: 10,
+              ),
+              Row(
+                children: <Widget>[
+                  Text('User email:',
+                      style: GoogleFonts.roboto(
+                        fontWeight: FontWeight.w500,
+                        fontSize: 18,
+                        color: Colors.black,
+                      )),
+                  //Text(),
+                ],
+              ),
+              // const SizedBox(
+              //   height: 10,
+              // ),
+              // Row(
+              //   children: <Widget>[
+              //     Text('User Password:',
+              //         style: GoogleFonts.roboto(
+              //           fontWeight: FontWeight.w500,
+              //           fontSize: 18,
+              //           color: Colors.black,
+              //         )),
+              //     //Text(),
+              //   ],
+              // ),
+              // const SizedBox(
+              //   height: 10,
+              // ),
+              // Row(
+              //   children: <Widget>[
+              //     Text('Your Gender is:',
+              //         style: GoogleFonts.roboto(
+              //           fontWeight: FontWeight.w500,
+              //           fontSize: 18,
+              //           color: Colors.black,
+              //         )),
+              //     //Text(),
+              //   ],
+              // ),
+              // const SizedBox(
+              //   height: 10,
+              // ),
+              // Row(
+              //   children: <Widget>[
+              //     Text('Your dating preference:',
+              //         style: GoogleFonts.roboto(
+              //           fontWeight: FontWeight.w500,
+              //           fontSize: 18,
+              //           color: Colors.black,
+              //         )),
+              //     //Text(),
+              //   ],
+              // ),
+              // const SizedBox(
+              //   height: 10,
+              // ),
+              // Row(
+              //   children: <Widget>[
+              //     Text('Your reationship preference:',
+              //         style: GoogleFonts.roboto(
+              //           fontWeight: FontWeight.w500,
+              //           fontSize: 18,
+              //           color: Colors.black,
+              //         )),
+              //     //Text(),
+              //   ],
+              // ),
+              // const SizedBox(
+              //   height: 10,
+              // ),
+              // Row(
+              //   children: <Widget>[
+              //     Text('Your NTUA school:',
+              //         style: GoogleFonts.roboto(
+              //           fontWeight: FontWeight.w500,
+              //           fontSize: 18,
+              //           color: Colors.black,
+              //         )),
+              //     //Text(),
+              //   ],
+              // ),
+              // const SizedBox(
+              //   height: 10,
+              // ),
+              // Row(
+              //   children: <Widget>[
+              //     Text('Your dating preference:',
+              //         style: GoogleFonts.roboto(
+              //           fontWeight: FontWeight.w500,
+              //           fontSize: 18,
+              //           color: Colors.black,
+              //         )),
+              //     //Text(),
+              //   ],
+              // ),
+              // SizedBox(
+              //   height: 10,
+              // ),
+              // Row(
+              //   children: <Widget>[
+              //     Text('Your profile description:',
+              //         style: GoogleFonts.roboto(
+              //           fontWeight: FontWeight.w500,
+              //           fontSize: 18,
+              //           color: Colors.black,
+              //         )),
+              //     //Text(),
+              //   ],
+              // ),
+              // SizedBox(
+              //   height: 10,
+              // ),
+              // Text('Add your profile picture:',
+              //     style: GoogleFonts.roboto(
+              //       fontWeight: FontWeight.w500,
+              //       fontSize: 18,
+              //       color: Colors.black,
+              //     )),
             ],
           ),
         ),
