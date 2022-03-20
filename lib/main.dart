@@ -4,8 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:emper/screens/sign_up.dart';
 import 'globals.dart' as globals;
-//import 'package:emper/home.dart';
-//import 'package:emper/splash.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,6 +16,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'EMPer',
       theme: ThemeData(
           primarySwatch: Colors.red,
