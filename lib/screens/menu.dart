@@ -1,5 +1,8 @@
 // ignore_for_file: unnecessary_const
 
+import 'package:emper/screens/log_in.dart';
+import 'package:emper/screens/profile.dart';
+import 'package:emper/screens/settings.dart';
 import 'package:flutter/material.dart';
 import 'package:emper/main.dart';
 
@@ -35,7 +38,7 @@ class Menu extends StatelessWidget {
                     alignment: Alignment.topLeft,
                     child: CircleAvatar(
                       backgroundImage:
-                          NetworkImage('assets/Face1.png', scale: 0.5),
+                          NetworkImage('assets/dummyprofile.jpg', scale: 0.5),
                     ),
                   ),
                 ),
@@ -48,6 +51,7 @@ class Menu extends StatelessWidget {
               ),
               ListTile(
                 title: const Text('Make a Match'),
+                leading: Icon(Icons.favorite),
                 onTap: () {
                   Navigator.push(
                     context,
@@ -57,6 +61,7 @@ class Menu extends StatelessWidget {
               ),
               ListTile(
                 title: const Text('My Matches'),
+                leading: Icon(Icons.favorite),
                 onTap: () {
                   Navigator.push(
                     context,
@@ -67,15 +72,17 @@ class Menu extends StatelessWidget {
               ),
               ListTile(
                 title: const Text('My Profile'),
+                leading: Icon(Icons.favorite),
                 onTap: () {
-                  // Update the state of the app
-                  // ...
-                  // Then close the drawer
-                  Navigator.pop(context);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const MyProfile()),
+                  );
                 },
               ),
               ListTile(
                 title: const Text('Notifications'),
+                leading: Icon(Icons.favorite),
                 onTap: () {
                   Navigator.push(
                     context,
@@ -86,20 +93,22 @@ class Menu extends StatelessWidget {
               ),
               ListTile(
                 title: const Text('Settings'),
+                leading: Icon(Icons.favorite),
                 onTap: () {
-                  // Update the state of the app
-                  // ...
-                  // Then close the drawer
-                  Navigator.pop(context);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const Settings()),
+                  );
                 },
               ),
               ListTile(
                 title: const Text('Log out'),
+                leading: Icon(Icons.favorite),
                 onTap: () {
-                  // Update the state of the app
-                  // ...
-                  // Then close the drawer
-                  Navigator.pop(context);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const LogIn()),
+                  );
                 },
               ),
               ListTile(

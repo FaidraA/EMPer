@@ -1,3 +1,5 @@
+import 'package:emper/main.dart';
+import 'package:emper/screens/profile.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '/globals.dart' as globals;
@@ -65,7 +67,11 @@ class _SignUpState extends State<SignUp> {
                               color: Colors.white,
                             )),
                         onPressed: () {
-                          _setText();
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const MyProfile()),
+                          );
                         },
                       )),
                 ],
@@ -121,6 +127,36 @@ class _SignUpState extends State<SignUp> {
                               borderSide: BorderSide(color: Color(0xFF741818))),
                           border: OutlineInputBorder(),
                           hintText: 'ex password123#!'),
+                      cursorColor: Color(0xFF741818),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              Row(
+                children: [
+                  Text('Your Name & Age:',
+                      textAlign: TextAlign.center,
+                      style: GoogleFonts.roboto(
+                        fontWeight: FontWeight.w500,
+                        fontSize: 18,
+                        color: Colors.black,
+                      )),
+                  const SizedBox(
+                    width: 15,
+                  ),
+                  Container(
+                    height: 80,
+                    width: 250,
+                    child: TextField(
+                      onChanged: (value) => globals.name = value,
+                      decoration: const InputDecoration(
+                          focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Color(0xFF741818))),
+                          border: OutlineInputBorder(),
+                          hintText: 'ex Dude Dudeman, 21'),
                       cursorColor: Color(0xFF741818),
                     ),
                   ),
@@ -226,7 +262,7 @@ class _SignUpState extends State<SignUp> {
                     height: 80,
                     width: 250,
                     child: TextField(
-                      onChanged: (value) => globals.password = value,
+                      onChanged: (value) => globals.ntuaSchool = value,
                       decoration: const InputDecoration(
                           focusedBorder: OutlineInputBorder(
                               borderSide: BorderSide(color: Color(0xFF741818))),

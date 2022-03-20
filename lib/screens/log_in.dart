@@ -1,5 +1,8 @@
+import 'package:emper/main.dart';
+import 'package:emper/screens/sign_up.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:emper/globals.dart' as globals;
 
 class LogIn extends StatefulWidget {
   const LogIn({Key? key}) : super(key: key);
@@ -58,22 +61,30 @@ class _LogInState extends State<LogIn> {
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: TextField(
+                        onChanged: (value) => globals.signinMail = value,
                         controller: nameController,
                         decoration: const InputDecoration(
+                            focusedBorder: OutlineInputBorder(
+                                borderSide:
+                                    BorderSide(color: Color(0xFF741818))),
                             border: OutlineInputBorder(),
-                            labelText: 'Email',
-                            hintText: 'Enter valid email id as abc@gmail.com'),
+                            hintText: 'ex abc@gmail.com'),
+                        cursorColor: Color(0xFF741818),
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: TextField(
+                        onChanged: (value) => globals.signinPass = value,
                         controller: passwordController,
                         obscureText: true,
                         decoration: const InputDecoration(
+                            focusedBorder: OutlineInputBorder(
+                                borderSide:
+                                    BorderSide(color: Color(0xFF741818))),
                             border: OutlineInputBorder(),
-                            labelText: 'Password',
-                            hintText: 'Enter secure password'),
+                            hintText: 'ex Password'),
+                        cursorColor: Color(0xFF741818),
                       ),
                     ),
                     Container(
@@ -85,9 +96,15 @@ class _LogInState extends State<LogIn> {
                           ),
                           child: const Text('LOG IN'),
                           onPressed: () {
-                            print(nameController.text);
-                            print(passwordController.text);
-                            //Main Page screen
+                            if (globals.signinMail == globals.userMail &&
+                                globals.signinPass == globals.password)
+                              [
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const MatchPage()),
+                                )
+                              ];
                           },
                         )),
                   ],
@@ -96,21 +113,10 @@ class _LogInState extends State<LogIn> {
               const SizedBox(height: 10),
               TextButton(
                 onPressed: () {
-                  //forgot password screen
-                },
-                child: Text(
-                  'Forgot Password',
-                  style: GoogleFonts.pacifico(
-                    fontSize: 16,
-                    color: Colors.white,
-                    decoration: TextDecoration.underline,
-                  ),
-                ),
-              ),
-              const SizedBox(height: 10),
-              TextButton(
-                onPressed: () {
-                  //Create Account screen
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const SignUp()),
+                  );
                 },
                 child: Text(
                   'Create Account',
