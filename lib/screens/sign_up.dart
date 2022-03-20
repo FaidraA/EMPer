@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '/globals.dart' as globals;
 
 class SignUp extends StatefulWidget {
   const SignUp({Key? key}) : super(key: key);
@@ -8,8 +9,18 @@ class SignUp extends StatefulWidget {
 }
 
 class _SignUpState extends State<SignUp> {
-  TextEditingController nameController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
+  final userMail = TextEditingController();
+  TextEditingController password = TextEditingController();
+
+  String dropdownValue = "Male";
+  var sexualities = ['Straight', 'Gay', 'Other'];
+
+  String text = 'arxikopoihmeni timi';
+  void _setText() {
+    setState(() {
+      text = globals.userMail;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -25,11 +36,12 @@ class _SignUpState extends State<SignUp> {
         ),
         backgroundColor: const Color(0xFFF1C3C3),
         body: Padding(
-          padding: const EdgeInsets.all(15.0),
+          padding: EdgeInsets.all(15.0),
           child: Column(
-            children: <Widget>[
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
               Row(
-                children: <Widget>[
+                children: [
                   Text('Submit your Profile ...',
                       style: GoogleFonts.pacifico(
                         fontWeight: FontWeight.bold,
@@ -53,9 +65,7 @@ class _SignUpState extends State<SignUp> {
                               color: Colors.white,
                             )),
                         onPressed: () {
-                          print(nameController.text);
-                          print(passwordController.text);
-                          //Main Page screen
+                          _setText();
                         },
                       )),
                 ],
@@ -64,112 +74,196 @@ class _SignUpState extends State<SignUp> {
                 height: 10,
               ),
               Row(
-                children: <Widget>[
+                children: [
                   Text('User email:',
+                      textAlign: TextAlign.center,
                       style: GoogleFonts.roboto(
                         fontWeight: FontWeight.w500,
                         fontSize: 18,
                         color: Colors.black,
                       )),
-                  //Text(),
+                  const SizedBox(
+                    width: 15,
+                  ),
+                  Container(
+                    height: 80,
+                    width: 250,
+                    child: TextField(
+                      onChanged: (value) => globals.userMail = value,
+                      decoration: const InputDecoration(
+                          focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Color(0xFF741818))),
+                          border: OutlineInputBorder(),
+                          hintText: 'ex abc@gmail.com'),
+                      cursorColor: Color(0xFF741818),
+                    ),
+                  ),
                 ],
               ),
-              const SizedBox(
-                height: 10,
-              ),
               Row(
-                children: <Widget>[
+                children: [
                   Text('User Password:',
                       style: GoogleFonts.roboto(
                         fontWeight: FontWeight.w500,
                         fontSize: 18,
                         color: Colors.black,
                       )),
-                  //Text(),
+                  const SizedBox(
+                    width: 15,
+                  ),
+                  Container(
+                    height: 80,
+                    width: 250,
+                    child: TextField(
+                      onChanged: (value) => globals.password = value,
+                      decoration: const InputDecoration(
+                          focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Color(0xFF741818))),
+                          border: OutlineInputBorder(),
+                          hintText: 'ex password123#!'),
+                      cursorColor: Color(0xFF741818),
+                    ),
+                  ),
                 ],
               ),
               const SizedBox(
                 height: 10,
               ),
               Row(
-                children: <Widget>[
-                  Text('Your Gender is:',
+                children: [
+                  Text('Your sexual orientation is: ',
                       style: GoogleFonts.roboto(
                         fontWeight: FontWeight.w500,
                         fontSize: 18,
                         color: Colors.black,
                       )),
-                  //Text(),
+                  const SizedBox(
+                    width: 15,
+                  ),
+                  // ------------ ERROR CODE. NEEDS FIXING ---------------
+                  // DropdownButton(
+                  //   value: dropdownValue,
+                  //   items: <DropdownMenuItem>[
+                  //     DropdownMenuItem(
+                  //         child: Text("Straight"), value: "Straight"),
+                  //     DropdownMenuItem(
+                  //       child: Text("Gay"),
+                  //       value: "Gay",
+                  //     ),
+                  //     DropdownMenuItem(
+                  //       child: Text("Other"),
+                  //       value: "Other",
+                  //     ),
+                  //   ],
+                  //   onChanged: (value) {
+                  //     setState(() {
+                  //       dropdownValue = value;
+                  //     });
+                  //   },
+                  // )
+                  // ------------ ERROR CODE. NEEDS FIXING ---------------
+                  // ---------------- PLACE HOLDER TEXTFIELD -------------
+                  Container(
+                    height: 80,
+                    width: 250,
+                    child: TextField(
+                      onChanged: (value) => globals.datingPref = value,
+                      decoration: const InputDecoration(
+                          focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Color(0xFF741818))),
+                          border: OutlineInputBorder(),
+                          hintText: 'Straight, Gay or Other'),
+                      cursorColor: Color(0xFF741818),
+                    ),
+                  ),
+                  // ---------------- PLACE HOLDER TEXTFIELD -------------
                 ],
               ),
               const SizedBox(
                 height: 10,
               ),
               Row(
-                children: <Widget>[
-                  Text('Your dating preference:',
-                      style: GoogleFonts.roboto(
-                        fontWeight: FontWeight.w500,
-                        fontSize: 18,
-                        color: Colors.black,
-                      )),
-                  //Text(),
-                ],
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              Row(
-                children: <Widget>[
+                children: [
                   Text('Your reationship preference:',
                       style: GoogleFonts.roboto(
                         fontWeight: FontWeight.w500,
                         fontSize: 18,
                         color: Colors.black,
                       )),
-                  //Text(),
+                  const SizedBox(
+                    width: 15,
+                  ),
+                  Container(
+                    height: 80,
+                    width: 250,
+                    child: TextField(
+                      onChanged: (value) => globals.relationship = value,
+                      decoration: const InputDecoration(
+                          focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Color(0xFF741818))),
+                          border: OutlineInputBorder(),
+                          hintText: 'ex Serious or Casual'),
+                      cursorColor: Color(0xFF741818),
+                    ),
+                  ),
                 ],
               ),
               const SizedBox(
                 height: 10,
               ),
               Row(
-                children: <Widget>[
+                children: [
                   Text('Your NTUA school:',
                       style: GoogleFonts.roboto(
                         fontWeight: FontWeight.w500,
                         fontSize: 18,
                         color: Colors.black,
                       )),
-                  //Text(),
+                  const SizedBox(
+                    width: 15,
+                  ),
+                  Container(
+                    height: 80,
+                    width: 250,
+                    child: TextField(
+                      onChanged: (value) => globals.password = value,
+                      decoration: const InputDecoration(
+                          focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Color(0xFF741818))),
+                          border: OutlineInputBorder(),
+                          hintText: 'ex ECE, CHEM, METAL, '),
+                      cursorColor: Color(0xFF741818),
+                    ),
+                  ),
                 ],
               ),
               const SizedBox(
                 height: 10,
               ),
               Row(
-                children: <Widget>[
-                  Text('Your dating preference:',
-                      style: GoogleFonts.roboto(
-                        fontWeight: FontWeight.w500,
-                        fontSize: 18,
-                        color: Colors.black,
-                      )),
-                  //Text(),
-                ],
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Row(
-                children: <Widget>[
+                children: [
                   Text('Your profile description:',
                       style: GoogleFonts.roboto(
                         fontWeight: FontWeight.w500,
                         fontSize: 18,
                         color: Colors.black,
                       )),
-                  //Text(),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  Container(
+                    height: 80,
+                    width: 250,
+                    child: TextField(
+                      onChanged: (value) => globals.description = value,
+                      decoration: const InputDecoration(
+                          focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Color(0xFF741818))),
+                          border: OutlineInputBorder(),
+                          hintText: 'ex This is my Description'),
+                      cursorColor: Color(0xFF741818),
+                    ),
+                  ),
                 ],
               ),
               SizedBox(
@@ -181,6 +275,11 @@ class _SignUpState extends State<SignUp> {
                     fontSize: 18,
                     color: Colors.black,
                   )),
+              Container(
+                  height: 40,
+                  width: 40,
+                  color: Colors.grey,
+                  child: Icon(Icons.add_a_photo))
             ],
           ),
         ),
