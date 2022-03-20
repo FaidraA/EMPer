@@ -74,113 +74,113 @@ class _SignUpState extends State<SignUp> {
                   //Text(),
                 ],
               ),
-              // const SizedBox(
-              //   height: 10,
-              // ),
-              // Row(
-              //   children: <Widget>[
-              //     Text('User Password:',
-              //         style: GoogleFonts.roboto(
-              //           fontWeight: FontWeight.w500,
-              //           fontSize: 18,
-              //           color: Colors.black,
-              //         )),
-              //     //Text(),
-              //   ],
-              // ),
-              // const SizedBox(
-              //   height: 10,
-              // ),
-              // Row(
-              //   children: <Widget>[
-              //     Text('Your Gender is:',
-              //         style: GoogleFonts.roboto(
-              //           fontWeight: FontWeight.w500,
-              //           fontSize: 18,
-              //           color: Colors.black,
-              //         )),
-              //     //Text(),
-              //   ],
-              // ),
-              // const SizedBox(
-              //   height: 10,
-              // ),
-              // Row(
-              //   children: <Widget>[
-              //     Text('Your dating preference:',
-              //         style: GoogleFonts.roboto(
-              //           fontWeight: FontWeight.w500,
-              //           fontSize: 18,
-              //           color: Colors.black,
-              //         )),
-              //     //Text(),
-              //   ],
-              // ),
-              // const SizedBox(
-              //   height: 10,
-              // ),
-              // Row(
-              //   children: <Widget>[
-              //     Text('Your reationship preference:',
-              //         style: GoogleFonts.roboto(
-              //           fontWeight: FontWeight.w500,
-              //           fontSize: 18,
-              //           color: Colors.black,
-              //         )),
-              //     //Text(),
-              //   ],
-              // ),
-              // const SizedBox(
-              //   height: 10,
-              // ),
-              // Row(
-              //   children: <Widget>[
-              //     Text('Your NTUA school:',
-              //         style: GoogleFonts.roboto(
-              //           fontWeight: FontWeight.w500,
-              //           fontSize: 18,
-              //           color: Colors.black,
-              //         )),
-              //     //Text(),
-              //   ],
-              // ),
-              // const SizedBox(
-              //   height: 10,
-              // ),
-              // Row(
-              //   children: <Widget>[
-              //     Text('Your dating preference:',
-              //         style: GoogleFonts.roboto(
-              //           fontWeight: FontWeight.w500,
-              //           fontSize: 18,
-              //           color: Colors.black,
-              //         )),
-              //     //Text(),
-              //   ],
-              // ),
-              // SizedBox(
-              //   height: 10,
-              // ),
-              // Row(
-              //   children: <Widget>[
-              //     Text('Your profile description:',
-              //         style: GoogleFonts.roboto(
-              //           fontWeight: FontWeight.w500,
-              //           fontSize: 18,
-              //           color: Colors.black,
-              //         )),
-              //     //Text(),
-              //   ],
-              // ),
-              // SizedBox(
-              //   height: 10,
-              // ),
-              // Text('Add your profile picture:',
-              //     style: GoogleFonts.roboto(
-              //       fontWeight: FontWeight.w500,
-              //       fontSize: 18,
-              //       color: Colors.black,
-              //     )),
+              const SizedBox(
+                height: 10,
+              ),
+              Row(
+                children: <Widget>[
+                  Text('User Password:',
+                      style: GoogleFonts.roboto(
+                        fontWeight: FontWeight.w500,
+                        fontSize: 18,
+                        color: Colors.black,
+                      )),
+                  //Text(),
+                ],
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              Row(
+                children: <Widget>[
+                  Text('Your Gender is:',
+                      style: GoogleFonts.roboto(
+                        fontWeight: FontWeight.w500,
+                        fontSize: 18,
+                        color: Colors.black,
+                      )),
+                  //Text(),
+                ],
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              Row(
+                children: <Widget>[
+                  Text('Your dating preference:',
+                      style: GoogleFonts.roboto(
+                        fontWeight: FontWeight.w500,
+                        fontSize: 18,
+                        color: Colors.black,
+                      )),
+                  //Text(),
+                ],
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              Row(
+                children: <Widget>[
+                  Text('Your reationship preference:',
+                      style: GoogleFonts.roboto(
+                        fontWeight: FontWeight.w500,
+                        fontSize: 18,
+                        color: Colors.black,
+                      )),
+                  //Text(),
+                ],
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              Row(
+                children: <Widget>[
+                  Text('Your NTUA school:',
+                      style: GoogleFonts.roboto(
+                        fontWeight: FontWeight.w500,
+                        fontSize: 18,
+                        color: Colors.black,
+                      )),
+                  //Text(),
+                ],
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              Row(
+                children: <Widget>[
+                  Text('Your dating preference:',
+                      style: GoogleFonts.roboto(
+                        fontWeight: FontWeight.w500,
+                        fontSize: 18,
+                        color: Colors.black,
+                      )),
+                  //Text(),
+                ],
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Row(
+                children: <Widget>[
+                  Text('Your profile description:',
+                      style: GoogleFonts.roboto(
+                        fontWeight: FontWeight.w500,
+                        fontSize: 18,
+                        color: Colors.black,
+                      )),
+                  //Text(),
+                ],
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Text('Add your profile picture:',
+                  style: GoogleFonts.roboto(
+                    fontWeight: FontWeight.w500,
+                    fontSize: 18,
+                    color: Colors.black,
+                  )),
             ],
           ),
         ),
