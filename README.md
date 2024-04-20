@@ -1,1 +1,3 @@
-This is EMPer, an app developped for the class Human and Computer Interaction. Collaboration with Dimitris Sarantidis. 
+This is EMPer, an app developped for the class Human and Computer Interaction of the ECE School of NTUA. 
+
+Collaboration with Dimitris Sarantidis ()
